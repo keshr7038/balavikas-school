@@ -118,7 +118,7 @@ export default function Home() {
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover opacity-50 pointer-events-none"
           >
             <source src="/images/hero-bg.mp4" type="video/mp4" />
           </video>
@@ -147,7 +147,7 @@ export default function Home() {
             variants={itemVariants}
             className="font-display text-5xl md:text-7xl font-semibold text-anchor leading-[1.05] tracking-tight max-w-3xl mx-auto"
           >
-            Bala Vikas <br />
+            Balavikas <br />
             <span className="text-primary italic">E.M High School</span>
           </motion.h1>
 
