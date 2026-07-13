@@ -51,10 +51,8 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-canvas/95 backdrop-blur-md py-4 shadow-navy"
-            : "bg-transparent py-6"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-anchor/95 backdrop-blur-md shadow-navy ${
+          isScrolled ? "py-4" : "py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -72,10 +70,10 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-accent text-sm md:text-base tracking-[0.2em] font-bold text-anchor transition-colors duration-200 group-hover:text-primary leading-tight">
+              <span className="font-accent text-sm md:text-base tracking-[0.2em] font-bold text-white transition-colors duration-200 group-hover:text-primary leading-tight">
                 BALAVIKAS
               </span>
-              <span className="font-sans text-[10px] tracking-[0.1em] font-medium text-anchor/70 transition-colors duration-200 group-hover:text-primary/70 leading-none">
+              <span className="font-sans text-[10px] tracking-[0.1em] font-medium text-white/70 transition-colors duration-200 group-hover:text-primary/70 leading-none">
                 E.M HIGH SCHOOL
               </span>
             </div>
@@ -87,7 +85,11 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="relative py-2 text-sm font-medium text-anchor focus-visible-primary group"
+                className={`relative py-2 text-sm font-medium transition-colors focus-visible-primary group ${
+                  isActive(link.href)
+                    ? "text-white font-semibold"
+                    : "text-white/80 hover:text-white"
+                }`}
               >
                 <span className="relative z-10">{link.name}</span>
                 {isActive(link.href) ? (
@@ -107,7 +109,7 @@ export default function Navbar() {
               <button
                 onClick={() => setIsMoreOpen(!isMoreOpen)}
                 onMouseEnter={() => setIsMoreOpen(true)}
-                className="flex items-center space-x-1 py-2 text-sm font-medium text-anchor hover:text-primary transition-colors focus-visible-primary"
+                className="flex items-center space-x-1 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors focus-visible-primary"
               >
                 <span>More</span>
                 <ChevronDown
@@ -124,7 +126,7 @@ export default function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     onMouseLeave={() => setIsMoreOpen(false)}
-                    className="absolute right-0 mt-2 w-48 bg-canvas border border-surface rounded-xl shadow-navy py-2 z-50"
+                    className="absolute right-0 mt-2 w-48 bg-anchor border border-white/10 rounded-xl shadow-navy py-2 z-50"
                   >
                     {secondaryLinks.map((link) => (
                       <Link
@@ -132,8 +134,8 @@ export default function Navbar() {
                         href={link.href}
                         className={`block px-4 py-2.5 text-sm font-medium transition-colors ${
                           isActive(link.href)
-                            ? "bg-surface text-anchor font-semibold"
-                            : "text-anchor hover:bg-surface/50 hover:text-primary"
+                            ? "bg-white/10 text-white font-semibold"
+                            : "text-white/80 hover:bg-white/5 hover:text-white"
                         }`}
                       >
                         {link.name}
@@ -157,7 +159,7 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-anchor focus-visible-primary rounded-lg hover:bg-surface/30"
+              className="lg:hidden p-2 text-white focus-visible-primary rounded-lg hover:bg-white/10"
               aria-label="Toggle Menu"
             >
               {isMobileMenuOpen ? (
