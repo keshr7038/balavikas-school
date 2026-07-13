@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -60,14 +61,24 @@ export default function Navbar() {
           {/* Logo / Wordmark */}
           <Link
             href="/"
-            className="flex flex-col focus-visible-primary rounded-lg p-1 group"
+            className="flex items-center space-x-3 focus-visible-primary rounded-lg p-1 group"
           >
-            <span className="font-accent text-sm md:text-base tracking-[0.2em] font-bold text-anchor transition-colors duration-200 group-hover:text-primary">
-              BALAVIKAS
-            </span>
-            <span className="font-sans text-[10px] tracking-[0.1em] font-medium text-anchor/70 transition-colors duration-200 group-hover:text-primary/70">
-              E.M HIGH SCHOOL
-            </span>
+            <div className="relative w-10 h-10 bg-white rounded-full overflow-hidden flex items-center justify-center border border-surface/50 shadow-sm transition-transform duration-300 group-hover:scale-105">
+              <Image
+                src="/logo.jpg"
+                alt="Bala Vikas English Medium School Logo"
+                fill
+                className="object-contain p-0.5"
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-accent text-sm md:text-base tracking-[0.2em] font-bold text-anchor transition-colors duration-200 group-hover:text-primary leading-tight">
+                BALAVIKAS
+              </span>
+              <span className="font-sans text-[10px] tracking-[0.1em] font-medium text-anchor/70 transition-colors duration-200 group-hover:text-primary/70 leading-none">
+                E.M HIGH SCHOOL
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

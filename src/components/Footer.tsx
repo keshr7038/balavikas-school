@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function Footer() {
@@ -26,13 +27,23 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-12 border-b border-surface/10">
           {/* Column 1: Blurb + Social */}
           <div className="lg:col-span-2 space-y-6">
-            <div>
-              <span className="font-accent text-lg tracking-[0.2em] font-bold text-white block">
-                BALAVIKAS
-              </span>
-              <span className="font-sans text-xs tracking-[0.1em] font-medium text-surface block">
-                E.M HIGH SCHOOL
-              </span>
+            <div className="flex items-center space-x-3">
+              <div className="relative w-12 h-12 bg-white rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm">
+                <Image
+                  src="/logo.jpg"
+                  alt="Bala Vikas English Medium School Logo"
+                  fill
+                  className="object-contain p-0.5"
+                />
+              </div>
+              <div>
+                <span className="font-accent text-base md:text-lg tracking-[0.2em] font-bold text-white block leading-tight">
+                  BALAVIKAS
+                </span>
+                <span className="font-sans text-[11px] tracking-[0.1em] font-medium text-surface block leading-none">
+                  E.M HIGH SCHOOL
+                </span>
+              </div>
             </div>
             <p className="text-sm text-surface/80 leading-relaxed max-w-sm">
               Empowering students through holistic education since 1999. Rooted in values, guided by innovation, and committed to academic excellence.
